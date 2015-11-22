@@ -96,6 +96,7 @@ public class MusicListTableDemo extends JPanel {
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         if (DEBUG) {
+        	//Happens when mouse clicked to row
             table.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     printDebugData(table);
@@ -156,14 +157,24 @@ public class MusicListTableDemo extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println(table.getSelectedRow());
+				//System.out.println(table.getSelectedRow());
+				
 				javax.swing.table.TableModel model = table.getModel();
 				
+				//Except the top row is selected
 				if(table.getSelectedRow() > 0){
+					////Swapping Data
+					//Store up side data of selected one
 					Object[] dataSelected = data[table.getSelectedRow()-1];
+					//Update
 					data[table.getSelectedRow()-1] = data[table.getSelectedRow()];
+					//Restore
 					data[table.getSelectedRow()] = dataSelected;
+					
+					//Change Selection
 					table.setRowSelectionInterval(table.getSelectedRow()-1, table.getSelectedRow()-1);
+					
+					//Redraw to apply changed data
 					table.repaint(); 
 				}
 			}
