@@ -29,6 +29,7 @@ import javazoom.jl.player.Player;
 public class MP3Player {
     private String filename;
     private Player player; 
+    private Thread playThread;
 
     // constructor that takes the name of an MP3 file
     public MP3Player(String filename) {
@@ -50,16 +51,29 @@ public class MP3Player {
         }
 
         // run in new thread to play in background
-        new Thread() {
+        playThread = new Thread() {
             public void run() {
-                try { player.play(); }
+                try {
+                
+                	player.play(); 
+                
+                }
                 catch (Exception e) { System.out.println(e); }
             }
-        }.start();
-
-
-
-
+        };
+        playThread.start();
+    }
+    
+    public synchronized void pause(){
+    	synchronized(playThread){
+    		playThread.suspend();
+    	}
+    }
+    
+    public synchronized void resume(){
+    	synchronized(playThread){
+    		playThread.resume();
+    	}
     }
 
 
@@ -72,18 +86,46 @@ public class MP3Player {
         mp3.play();
 
         try {
-			Thread.sleep(3000);
+			Thread.sleep(100);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
         // when the computation is done, stop playing it
-        mp3.close();
-
-        // play from the beginning
-        mp3 = new MP3Player(filename);
-        mp3.play();
+        System.out.println("pause!");
+        mp3.pause();
+        
+        try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        System.out.println("resume");
+        mp3.resume();
+        
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        System.out.println("pause!");
+        mp3.pause();
+        
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        System.out.println("resume");
+        mp3.resume();
+        
 
     }
 
