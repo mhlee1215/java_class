@@ -1,4 +1,5 @@
 package main;
+
 import net.miginfocom.swing.MigLayout;
 
 import java.util.Calendar;
@@ -51,8 +52,10 @@ public class Layout extends JFrame {
 
 
 		JPanel panel = new JPanel();
-		int PADDING = 0;
-		panel.setLayout(new FlowLayout(FlowLayout.LEADING, PADDING, PADDING));
+		FlowLayout fLayout = new FlowLayout();
+		fLayout.setAlignment(FlowLayout.LEFT);
+		panel.setLayout(fLayout);
+		panel.setBorder(BorderFactory.createEmptyBorder(0, 11, 0, 0));
 		panel.setPreferredSize(new Dimension(400, 600));
 
 		int prevMonth = cal.get(Calendar.MONTH) ;
@@ -62,15 +65,15 @@ public class Layout extends JFrame {
 			if(prevMonth != cal.get(Calendar.MONTH)) break;
 
 			JPanel datepanel = new JPanel();
-			panel.add(datepanel);
-			datepanel.add(datewidget);
-			datewidget.setPreferredSize(new Dimension(75,100));
-			buildMigForm(datepanel);
-
-			for(int i = 0 ; i < curDayNum ; i++)
-				System.out.print("\t");
-
-			//			System.out.print(cal.get(Calendar.DATE));
+//			panel.add(datepanel);
+//			datepanel.add(datewidget);
+//			datewidget.setPreferredSize(new Dimension(75,100));
+//			buildMigForm(datepanel);
+//
+//			for(int i = 0 ; i < curDayNum ; i++)
+//				System.out.print("\t");
+//
+//			//			System.out.print(cal.get(Calendar.DATE));
 
 			datepanel = new JPanel();
 
@@ -79,7 +82,7 @@ public class Layout extends JFrame {
 
 			datepanel.setBackground(Color.white);
 			datepanel.add(datewidget);
-			datepanel.setPreferredSize(new Dimension(75,100));
+			datepanel.setPreferredSize(new Dimension(91,100));
 			panel.add(datepanel);
 
 			for (int a = 0; a<50; a++){
@@ -102,16 +105,16 @@ public class Layout extends JFrame {
 		JPanel fridaypanel = new JPanel();
 		JPanel saturdaypanel = new JPanel();
 
-		int widgetWidth = 80;
-		int widgetHeight = 50;
-		sundaywidget.setPreferredSize(new Dimension(widgetWidth, widgetHeight));
-		mondaywidget.setPreferredSize(new Dimension(widgetWidth, widgetHeight)); 
-		tuesdaywidget.setPreferredSize(new Dimension(widgetWidth, widgetHeight));
-		wednesdaywidget.setPreferredSize(new Dimension(widgetWidth, widgetHeight));
-		thursdaywidget.setPreferredSize(new Dimension(widgetWidth, widgetHeight));
-		fridaywidget.setPreferredSize(new Dimension(widgetWidth, widgetHeight));
-		saturdaywidget.setPreferredSize(new Dimension(widgetWidth, widgetHeight));
-		//panel.setLayout(new MigLayout());
+		int dateWidgetWidth = 82;
+		
+		sundaywidget.setPreferredSize(new Dimension(dateWidgetWidth, 50));
+		mondaywidget.setPreferredSize(new Dimension(dateWidgetWidth, 50)); 
+		tuesdaywidget.setPreferredSize(new Dimension(dateWidgetWidth, 50));
+		wednesdaywidget.setPreferredSize(new Dimension(dateWidgetWidth, 50));
+		thursdaywidget.setPreferredSize(new Dimension(dateWidgetWidth, 50));
+		fridaywidget.setPreferredSize(new Dimension(dateWidgetWidth, 50));
+		saturdaywidget.setPreferredSize(new Dimension(dateWidgetWidth, 50));
+		panel.setLayout(new MigLayout());
 
 		sundaypanel.add(sundaywidget, "0,0,0");
 		mondaypanel.add(mondaywidget, "0,0,0");
@@ -125,58 +128,56 @@ public class Layout extends JFrame {
 
 
 
-		//panel.setLayout(new MigLayout());
-		
-		//Why?
-//		buildMigForm(sundaypanel);
-//		panel.setLayout(new MigLayout());
-//		buildMigForm(mondaypanel);
-//		panel.setLayout(new MigLayout());
-//		buildMigForm(tuesdaypanel);
-//		panel.setLayout(new MigLayout());
-//		buildMigForm(wednesdaypanel);
-//		panel.setLayout(new MigLayout());
-//		buildMigForm(thursdaypanel);
-//		panel.setLayout(new MigLayout());
-//		buildMigForm(fridaypanel);
-//		panel.setLayout(new MigLayout());
-//		buildMigForm(saturdaypanel);
+		panel.setLayout(new MigLayout());
+		buildMigForm(sundaypanel);
+		panel.setLayout(new MigLayout());
+		buildMigForm(mondaypanel);
+		panel.setLayout(new MigLayout());
+		buildMigForm(tuesdaypanel);
+		panel.setLayout(new MigLayout());
+		buildMigForm(wednesdaypanel);
+		panel.setLayout(new MigLayout());
+		buildMigForm(thursdaypanel);
+		panel.setLayout(new MigLayout());
+		buildMigForm(fridaypanel);
+		panel.setLayout(new MigLayout());
+		buildMigForm(saturdaypanel);
 
 
 		sundaypanel = new JPanel();
 		sundaypanel.setBackground(Color.white);
 		sundaypanel.add(sundaywidget);
-		//sundaypanel.setBounds(0, 0, 0, 0);
+		sundaypanel.setBounds(0, 0, 0, 0);
 
 		mondaypanel = new JPanel();
 		mondaypanel.setBackground(Color.white);
 		mondaypanel.add(mondaywidget);
-		//mondaypanel.setBounds(100, 100, 100, 100);
+		mondaypanel.setBounds(100, 100, 100, 100);
 
 		tuesdaypanel = new JPanel();
 		tuesdaypanel.setBackground(Color.white);
 		tuesdaypanel.add(tuesdaywidget);
-		//tuesdaypanel.setBounds(200, 200, 200, 200);
+		tuesdaypanel.setBounds(200, 200, 200, 200);
 
 		wednesdaypanel = new JPanel();
 		wednesdaypanel.setBackground(Color.white);
 		wednesdaypanel.add(wednesdaywidget);
-		//wednesdaypanel.setBounds(100, 100, 100, 100);
+		wednesdaypanel.setBounds(100, 100, 100, 100);
 
 		thursdaypanel = new JPanel();
 		thursdaypanel.setBackground(Color.white);
 		thursdaypanel.add(thursdaywidget);
-		//thursdaypanel.setBounds(100, 100, 100, 100);
+		thursdaypanel.setBounds(100, 100, 100, 100);
 
 		fridaypanel = new JPanel();
 		fridaypanel.setBackground(Color.white);
 		fridaypanel.add(fridaywidget);
-		//fridaypanel.setBounds(100, 100, 100, 100);
+		fridaypanel.setBounds(100, 100, 100, 100);
 
 		saturdaypanel = new JPanel();
 		saturdaypanel.setBackground(Color.white);
 		saturdaypanel.add(saturdaywidget);
-		//saturdaypanel.setBounds(100, 100, 100, 100);
+		saturdaypanel.setBounds(100, 100, 100, 100);
 
 		setSize(100, 100);
 		setLocation(0, 0);
