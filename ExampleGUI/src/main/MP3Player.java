@@ -64,7 +64,7 @@ public class MP3Player {
         playThread.start();
     }
     
-    public synchronized void pause(){
+    public synchronized void pause(){ 
     	synchronized(playThread){
     		playThread.suspend();
     	}
