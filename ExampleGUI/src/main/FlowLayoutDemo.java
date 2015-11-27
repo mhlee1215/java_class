@@ -87,6 +87,7 @@ public class FlowLayoutDemo extends JFrame{
         
         //Process the Apply component orientation button press
         applyButton.addActionListener(new ActionListener(){
+        		
             public void actionPerformed(ActionEvent e){
                 String command = group.getSelection().getActionCommand();
                 //Check the selection

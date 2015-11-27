@@ -66,6 +66,7 @@ public class CoverFlowDemo {
 						new PinchTransition(f).startCloseTransition();
 					}
 				});
+				
 				p.add(closeButton, BorderLayout.EAST);
 
 				for (int i = 0; i < 50; i++) {
@@ -93,6 +94,9 @@ public class CoverFlowDemo {
 
 					g.dispose();
 					scroller.addItem(new Item(img));
+				
+					
+					
 				}
 				f.setSize(500, 250);
 				f.setVisible(true);
