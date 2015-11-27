@@ -31,4 +31,32 @@ public class BigNumberCalculatorTemp {
 		
 		return result;
 	}
+	
+	public static String bigSub(String a, String b){
+		String result = "";
+		
+		//Fill this part so that compute a + b
+		
+		return result;
+	}
+	
+	public static String bigMul(String a, String b){
+		String result = "";
+		
+		//Fill this part so that compute a + b
+		
+		return result;
+	}
+	
+	public static String bigDiv(String a, String b){
+		String result = "";
+		
+		//Fill this part so that compute a + b
+		
+		return result;
+	}
+	
+	
+	
+	
 }

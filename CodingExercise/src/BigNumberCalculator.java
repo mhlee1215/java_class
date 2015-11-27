@@ -49,7 +49,7 @@ public class BigNumberCalculator {
 			}
 			
 			digit_sum = digit_long + digit_short + carry;
-			carry = 0;
+			carry = 0; 
 			if(digit_sum > 9){
 				digit_sum -= 10;
 				carry = 1;
@@ -58,6 +58,30 @@ public class BigNumberCalculator {
 		}
 		
 		result = reverseOrder(result);
+		return result;
+	}
+	
+	public static String bigSub(String a, String b){
+		String result = "";
+		
+		//Fill this part so that compute a + b
+		
+		return result;
+	}
+	
+	public static String bigMul(String a, String b){
+		String result = "";
+		
+		//Fill this part so that compute a + b
+		
+		return result;
+	}
+	
+	public static String bigDiv(String a, String b){
+		String result = "";
+		
+		//Fill this part so that compute a + b
+		
 		return result;
 	}
 }
