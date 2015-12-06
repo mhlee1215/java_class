@@ -1176,6 +1176,21 @@ public class StdDraw extends Thread implements ActionListener, MouseListener, Mo
 
 	public void drawGame(){
 		StdDraw.clear(StdDraw.GRAY);
+		
+		//Set Color
+		StdDraw.setPenColor(StdDraw.YELLOW);
+		//Set Font
+		setFont(new Font("SansSerif", Font.PLAIN, 32));
+		//X, Y, String, rotation degree
+		//Write String
+		this.text(1-0.3, 1-0.1, blockP.x+", "+blockP.y, 0);
+		//Set Color
+		StdDraw.setPenColor(StdDraw.ORANGE);
+		//Set Font
+		setFont(new Font("SansSerif", Font.PLAIN, 50));
+		//Write String
+		this.text(1-0.3, 1-0.3, "START!", 20);
+		
 		StdDraw.setPenColor(StdDraw.BLACK); 
 
 		for(int i = 0 ; i < map.length ; i++){
@@ -1246,6 +1261,7 @@ public class StdDraw extends Thread implements ActionListener, MouseListener, Mo
 		// main animation loop
 		while (true)  { 
 
+			
 			drawGame();
 			try {
 				Thread.sleep(100);
@@ -1254,6 +1270,7 @@ public class StdDraw extends Thread implements ActionListener, MouseListener, Mo
 				e.printStackTrace();
 			}
 			movePrev(); 
+			
 		} 
 	}
 
