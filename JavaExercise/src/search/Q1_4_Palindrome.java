@@ -1,5 +1,7 @@
 package search;
 
+import java.util.List;
+
 public class Q1_4_Palindrome{
 	public static void main(String[] args){
 		//String input = "Tact coha";
@@ -11,7 +13,7 @@ public class Q1_4_Palindrome{
 	}
 
 	public static boolean isPalindrome(String input){
-
+		List a;
 		int[] map = new int[128];
 
 		input = input.toLowerCase().replace(" ", "");

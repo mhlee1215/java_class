@@ -3,7 +3,6 @@ package search;
 public class Q1_1_IsUnique{
 	public static void main(String[] args){
 		String input = "abcdefgg";
-
 		System.out.println(isUnique(input));
 		System.out.println(isUnique2(input));
 		System.out.println(isUnique3(input));
